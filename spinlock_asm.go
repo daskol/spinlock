@@ -2,13 +2,6 @@
 
 package spinlock
 
-//go:nosplit
-
-// Unlock unlocks spinlock s.
-func (s *SpinlockInAsm) Unlock() {
-	Unlock(&s.uint32)
-}
-
 //go:noescape
 //go:nosplit
 
@@ -33,6 +26,13 @@ type SpinlockInAsm struct {
 // blocks until the spinlock is avaliable.
 func (s *SpinlockInAsm) Lock() {
 	Lock(&s.uint32)
+}
+
+//go:nosplit
+
+// Unlock unlocks spinlock s.
+func (s *SpinlockInAsm) Unlock() {
+	Unlock(&s.uint32)
 }
 
 // Spinlock is an alias for spinlock implementation in assembly.

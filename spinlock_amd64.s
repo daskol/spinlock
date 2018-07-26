@@ -1,8 +1,8 @@
 // 	spinlock_amd64.s
-// 	Implements locking/unlocking based on compare-and-swap instraction that is
+// 	Implements locking/unlocking based on compare-and-swap instruction that is
 // 	xchg. There is no special memory ordering for Intel 64 and IA-32
 // 	architectures. So, there is no any fence. In the same time, xchg operation
-// 	implies sequencial consistency memory ordering.
+// 	implies sequencial consistent memory ordering.
 
 #include "textflag.h"
 
